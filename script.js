@@ -1,0 +1,463 @@
+// Initialize AOS (Animate On Scroll)
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS with responsive settings
+    AOS.init({
+        duration: 800,
+        easing: 'ease',
+        once: true,
+        mirror: false,
+        disable: function() {
+            return window.innerWidth < 576; // Disable animations on very small screens
+        }
+    });
+    
+    // Implement lazy loading for images
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const parent = img.parentElement;
+                    
+                    // Add loading class
+                    if (parent.classList.contains('project-img')) {
+                        parent.classList.add('loading');
+                    }
+                    
+                    // Load the image
+                    img.src = img.dataset.src;
+                    
+                    img.onload = function() {
+                        img.removeAttribute('data-src');
+                        if (parent.classList.contains('loading')) {
+                            parent.classList.remove('loading');
+                        }
+                    };
+                    
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+    } else {
+        // Fallback for browsers that don't support IntersectionObserver
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+        });
+    }
+    
+    // Handle responsive images
+    function handleResponsiveImages() {
+        const projectImages = document.querySelectorAll('.project-img img');
+        projectImages.forEach(img => {
+            if (img.complete) {
+                img.parentElement.classList.remove('loading');
+            } else {
+                img.parentElement.classList.add('loading');
+                img.onload = function() {
+                    img.parentElement.classList.remove('loading');
+                };
+            }
+        });
+    }
+    
+    // Call on page load
+    handleResponsiveImages();
+    
+    // Call on window resize
+    window.addEventListener('resize', handleResponsiveImages);
+    
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = themeToggle.querySelector('.fa-sun');
+    const moonIcon = themeToggle.querySelector('.fa-moon');
+    
+    // Function to apply theme
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        updateThemeToggleState();
+    }
+    
+    // Set proper ARIA labels for accessibility
+    function updateAriaLabels() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            themeToggle.setAttribute('aria-label', 'Switch to light mode');
+        } else {
+            themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+        }
+    }
+    
+    // Update theme toggle button state
+    function updateThemeToggleState() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            moonIcon.style.opacity = '0';
+            sunIcon.style.opacity = '1';
+            themeToggle.classList.add('dark-mode-active');
+        } else {
+            moonIcon.style.opacity = '1';
+            sunIcon.style.opacity = '0';
+            themeToggle.classList.remove('dark-mode-active');
+        }
+        updateAriaLabels();
+    }
+    
+    // Check for saved theme preference or use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    if (savedTheme) {
+        // Use saved preference
+        applyTheme(savedTheme);
+    } else {
+        // Use system preference
+        if (prefersDarkScheme.matches) {
+            applyTheme('dark');
+        } else {
+            applyTheme('light');
+        }
+    }
+    
+    // Listen for system theme changes if no user preference is set
+    prefersDarkScheme.addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+    
+    // Add transition class after initial load to prevent transition on page load
+    setTimeout(() => {
+        document.body.classList.add('theme-transition');
+    }, 300);
+    
+    // Toggle theme when button is clicked
+    themeToggle.addEventListener('click', function() {
+        // Add animation class
+        themeToggle.classList.add('theme-toggle-active');
+        
+        // Get current theme
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        let newTheme = 'light';
+        
+        if (!currentTheme || currentTheme === 'light') {
+            newTheme = 'dark';
+        }
+        
+        // Apply theme with a slight delay for animation
+        setTimeout(() => {
+            applyTheme(newTheme);
+            
+            // Announce theme change for screen readers
+            const announcement = document.createElement('div');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.classList.add('sr-only');
+            announcement.textContent = `Switched to ${newTheme} mode`;
+            document.body.appendChild(announcement);
+            
+            // Clean up announcement
+            setTimeout(() => {
+                document.body.removeChild(announcement);
+            }, 1000);
+            
+            // Remove animation class
+            setTimeout(() => {
+                themeToggle.classList.remove('theme-toggle-active');
+            }, 300);
+        }, 150);
+    });
+    function updateThemeToggleState() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            moonIcon.style.opacity = '0';
+            sunIcon.style.opacity = '1';
+            themeToggle.classList.add('dark-mode-active');
+        } else {
+            moonIcon.style.opacity = '1';
+            sunIcon.style.opacity = '0';
+            themeToggle.classList.remove('dark-mode-active');
+        }
+        updateAriaLabels();
+    }
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const newTheme = e.matches ? 'dark' : 'light';
+        // Only change if user hasn't manually set a preference
+        if (!localStorage.getItem('theme')) {
+            document.documentElement.setAttribute('data-theme', newTheme);
+            updateThemeToggleState();
+        }
+    });
+
+    // Typing Animation
+    const typedTextSpan = document.querySelector('.typed-text');
+    const cursorSpan = document.querySelector('.cursor');
+    const textArray = ['Web Developer', 'UI/UX Designer', 'Software Engineer', 'Problem Solver'];
+    const typingDelay = 100;
+    const erasingDelay = 50;
+    const newTextDelay = 2000;
+    let textArrayIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+        if (charIndex < textArray[textArrayIndex].length) {
+            if (!cursorSpan.classList.contains('typing')) {
+                cursorSpan.classList.add('typing');
+            }
+            typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingDelay);
+        } else {
+            cursorSpan.classList.remove('typing');
+            setTimeout(erase, newTextDelay);
+        }
+    }
+
+    function erase() {
+        if (charIndex > 0) {
+            if (!cursorSpan.classList.contains('typing')) {
+                cursorSpan.classList.add('typing');
+            }
+            typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, erasingDelay);
+        } else {
+            cursorSpan.classList.remove('typing');
+            textArrayIndex++;
+            if (textArrayIndex >= textArray.length) {
+                textArrayIndex = 0;
+            }
+            setTimeout(type, typingDelay + 1100);
+        }
+    }
+
+    if (textArray.length) {
+        setTimeout(type, newTextDelay + 250);
+    }
+
+    // Navbar Scroll Effect
+    const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+
+    window.addEventListener('scroll', function() {
+        // Add scrolled class to navbar
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        // Update active nav link based on scroll position
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+                link.classList.add('active');
+            }
+        });
+
+        // Show/hide back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        if (window.scrollY > 300) {
+            backToTop.classList.add('active');
+        } else {
+            backToTop.classList.remove('active');
+        }
+    });
+
+    // Mobile Menu Toggle with improved functionality
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinksContainer = document.querySelector('.nav-links');
+    const body = document.body;
+
+    // Function to toggle menu state
+    function toggleMenu() {
+        menuToggle.classList.toggle('active');
+        navLinksContainer.classList.toggle('active');
+        
+        // Prevent body scrolling when menu is open
+        if (navLinksContainer.classList.contains('active')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        const isMenuToggle = e.target.closest('.menu-toggle');
+        const isNavLinks = e.target.closest('.nav-links');
+        
+        if (!isMenuToggle && !isNavLinks && navLinksContainer.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+
+    // Close mobile menu when clicking a nav link
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (navLinksContainer.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    });
+    
+    // Close menu on escape key press
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navLinksContainer.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+
+    // Projects Filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            const filterValue = this.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 100);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+
+    // Form Submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the form data to a server
+            // For now, we'll just show a success message
+            const formData = new FormData(contactForm);
+            const formValues = {};
+            
+            for (let [key, value] of formData.entries()) {
+                formValues[key] = value;
+            }
+            
+            console.log('Form submitted with values:', formValues);
+            
+            // Reset form and show success message
+            contactForm.reset();
+            alert('Thank you for your message! I will get back to you soon.');
+        });
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Add animation to menu toggle
+    menuToggle.addEventListener('click', function() {
+        const bars = document.querySelectorAll('.bar');
+        bars.forEach(bar => bar.classList.toggle('animate'));
+    });
+
+    // Add CSS for animated bars
+    const style = document.createElement('style');
+    style.textContent = `
+        .menu-toggle.active .bar:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .menu-toggle.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active .bar:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Add swipe functionality for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    // Check if touch is supported
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (isTouchDevice) {
+        // Setup touch event listeners
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+    }
+    
+    function handleSwipe() {
+        const swipeThreshold = 100; // Minimum distance required for swipe
+        const swipeRight = touchEndX - touchStartX > swipeThreshold;
+        const swipeLeft = touchStartX - touchEndX > swipeThreshold;
+        
+        // Swipe right to open menu (from left edge)
+        if (swipeRight && touchStartX < 50 && !navLinksContainer.classList.contains('active')) {
+            toggleMenu();
+        }
+        
+        // Swipe left to close menu
+        if (swipeLeft && navLinksContainer.classList.contains('active')) {
+            toggleMenu();
+        }
+    }
+    
+    // Handle window resize - close mobile menu if window is resized to desktop size
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && navLinksContainer.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+});

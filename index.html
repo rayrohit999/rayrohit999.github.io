@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio- Rohit Kumar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo" data-aos="fade-right" data-aos-duration="1000">
+            <a href="#home">Rohit Kumar</a>
+        </div>
+        <div class="menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li class="theme-toggle-container">
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Hello, I'm <span class="highlight">Rohit Kumar</span></h1>
+                <h2 class="typing-text">I'm a <span class="typed-text"></span><span class="cursor">&nbsp;</span></h2>
+                <p>Welcome to my portfolio website. I'm passionate about creating innovative solutions in web development and data management.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn primary-btn">Contact Me</a>
+                    <a href="#projects" class="btn secondary-btn">View My Work</a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
+                <div class="profile-image-container">
+                    <div class="profile-image"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <a href="#about"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-header" data-aos="fade-up">
+            <h2>About Me</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-image" data-aos="fade-right" data-aos-duration="1000">
+                <div class="about-image-container">
+                    <div class="about-profile-image"></div>
+                </div>
+            </div>
+            <div class="about-text" data-aos="fade-left" data-aos-duration="1000">
+                <h3>Who am I?</h3>
+                <p>I am a passionate Web Developer and SQL Specialist with a strong background in full-stack development. I enjoy solving complex problems and creating innovative solutions that make a difference.</p>
+                
+                <h3>My Journey</h3>
+                <p>Currently pursuing my MCA at Pimpri Chinchwad College of Engineering with a 9.6 CGPA, I've worked on various projects ranging from job portals to hospital management systems. My educational background in Computer Applications has provided me with a solid foundation in both frontend and backend technologies.</p>
+                
+                <div class="personal-info">
+                    <div class="info-item">
+                        <span class="info-title">Name:</span>
+                        <span class="info-value">Rohit Kumar</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Email:</span>
+                        <span class="info-value">rohitkumarara2004@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Phone:</span>
+                        <span class="info-value">(+91) 9693054074</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Location:</span>
+                        <span class="info-value">Pune, India</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Availability:</span>
+                        <span class="info-value">Available for new opportunities</span>
+                    </div>
+                </div>
+                
+                <div class="about-buttons">
+                    <a href="Updated Resume June 2025.pdf" class="btn primary-btn" target="_blank">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="section-header" data-aos="fade-up">
+            <h2>My Skills</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="skills-content">
+            <div class="skills-text" data-aos="fade-right" data-aos-duration="1000">
+                <h3>Technical Expertise</h3>
+                <p>I've developed a diverse set of skills throughout my career. Here are some of the key technologies and tools I work with:</p>
+            </div>
+            
+            <div class="skills-container" data-aos="fade-up" data-aos-duration="1000">
+                <div class="skill-category">
+                    <h4>Programming Languages</h4>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-python"></i></div>
+                            <h5>Python</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 95%;"></div>
+                            </div>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                            <h5>HTML5</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 90%;"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                            <h5>CSS3</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-js"></i></div>
+                            <h5>JavaScript</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 80%;"></div>
+                            </div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-java"></i></div>
+                            <h5>Java</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 75%;"></div>
+                            </div>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-code"></i></div>
+                            <h5>C/C++</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 70%;"></div>
+                            </div>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Frameworks & Libraries</h4>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-python"></i></div>
+                            <h5>Django</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 90%;"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-database"></i></div>
+                            <h5>SQL</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-bootstrap"></i></div>
+                            <h5>Bootstrap</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 90%;"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-python"></i></div>
+                            <h5>Numpy</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 70%;"></div>
+                            </div>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-python"></i></div>
+                            <h5>Pandas</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 70%;"></div>
+                            </div>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-python"></i></div>
+                            <h5>Seaborn</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 70%;"></div>
+                            </div>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Tools & Technologies</h4>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                            <h5>Git</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-github"></i></div>
+                            <h5>GitHub</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-database"></i></div>
+                            <h5>SQLite</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 80%;"></div>
+                            </div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                            <h5>Responsive Design</h5>
+                            <div class="skill-progress">
+                                <div class="progress" style="width: 90%;"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="section-header" data-aos="fade-up">
+            <h2>My Projects</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="projects-filter" data-aos="fade-up">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web Development</button>
+            <button class="filter-btn" data-filter="data">Data</button>
+        </div>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-content">
+                    <h3>CareerHub - Job Portal</h3>
+                    <p>Full Stack</p>
+                    <p class="project-description">A full-stack job portal enabling job seekers to search, filter, and apply for jobs, while recruiters can post and manage listings. Implemented user authentication, dynamic dashboards, job tracking, and email notifications.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">SqlLite</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://carrerhub.pythonanywhere.com/" class="project-link live-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="https://github.com/rayrohit999/jobportal" class="project-link source-link"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-content">
+                    <h3>QuickCare - Hospital Appointment System</h3>
+                    <p>Full Stack</p>
+                    <p class="project-description">A centralized hospital appointment booking system with full-stack capabilities. Patients can book and manage appointments across multiple hospitals, while admins handle scheduling. Focused on real-time data handling, user roles, and smooth UI/UX integration.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">SqlLite</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://quickcare.pythonanywhere.com/" class="project-link live-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="https://github.com/rayrohit999/quickcare-django" class="project-link source-link"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="300">
+                
+                <div class="project-content">
+                    <h3>Electricity Billing System</h3>
+                    <p>Web Development</p>
+                    <p class="project-description">Developed during my internship at South Bihar Power Distribution, this system streamlines electricity billing processes with user authentication, bill generation, payment tracking, and reporting features.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Php</span>
+                        <span class="tech-tag">MySql</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card" data-category="data" data-aos="fade-up" data-aos-delay="400">
+                
+                <div class="project-content">
+                    <h3>Department Inventory Management and Predictor</h3>
+                    <p>Full Stack</p>
+                    <p class="project-description">A management system with prediction ability developed for MCA Department of PCCoE. It is for managing the inventory useses  of departemt and enable teachers and staff seamlessly request requiered items from depratment. </p>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="500">
+                
+                <div class="project-content">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>Web Development</p>
+                    <p class="project-description">A responsive portfolio website built with HTML, CSS, and JavaScript, featuring smooth animations, interactive elements, and a clean, modern design to showcase my skills and projects.</p>
+                    <div class="project-links">
+                        <a href="https://rayrohit999.github.io/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="https://github.com/rayrohit999/rayrohit999.github.io.git" class="project-link"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 6 -->
+            <!-- <div class="project-card" data-category="data" data-aos="fade-up" data-aos-delay="600">
+                
+                <div class="project-content">
+                    <h3>Python Data Analysis Tool</h3>
+                    <p>Data Science</p>
+                    <p class="project-description">A Python-based data analysis tool that processes large datasets, generates insightful visualizations, and provides statistical analysis to support data-driven decision making.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="section-header" data-aos="fade-up">
+            <h2>My Experience</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="timeline">
+            <!-- Experience 1 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">June 2025 - Present</div>
+                <div class="timeline-content">
+                    <h3>SQL Intern</h3>
+                    <h4>Celebal Technologies</h4>
+                    <p>Working on SQL-based data management and query optimization tasks, contributing to real-time data handling and reporting solutions.</p>
+                    <div class="timeline-tags">
+                        <span class="tag">SQL</span>
+                        <span class="tag">Data Management</span>
+                        <span class="tag">Query Optimization</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Experience 2 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Feb 2024 - Apr 2024</div>
+                <div class="timeline-content">
+                    <h3>Web Developer Intern</h3>
+                    <h4>South Bihar Power Distribution and Co. Ltd.</h4>
+                    <p>Gained practical experience in full-stack web development through expert-led training and real-world projects. Built an Electricity Billing System to apply and demonstrate acquired skills.</p>
+                    <div class="timeline-tags">
+                        <span class="tag">PHP</span>
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Experience 3 -->
+            <!-- <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2018 - 2020</div>
+                <div class="timeline-content">
+                    <h3>Junior Developer</h3>
+                    <h4>Company Name</h4>
+                    <p>Describe your role, responsibilities, and key achievements. Highlight specific projects, technologies used, and the impact of your work.</p>
+                    <div class="timeline-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">PHP</span>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="section-header" data-aos="fade-up">
+            <h2>My Education</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="timeline">
+            <!-- Education 1 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2024 - Present</div>
+                <div class="timeline-content">
+                    <h3>Master of Computer Applications (MCA)</h3>
+                    <h4>Pimpri Chinchwad College of Engineering, Pune</h4>
+                    <p>Currently pursuing MCA with a strong academic record (CGPA: 9.6). Focusing on advanced programming, database management, and web development technologies.</p>
+                    <div class="timeline-tags">
+                        <span class="tag">Computer Applications</span>
+                        <span class="tag">Web Development</span>
+                        <span class="tag">Database Management</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education 2 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2021 - 2024</div>
+                <div class="timeline-content">
+                    <h3>Bachelor of Computer Applications (BCA)</h3>
+                    <h4>LNMI, Patna</h4>
+                    <p>Completed BCA with a CGPA of 7.9, establishing a strong foundation in programming fundamentals, software development, and computer science principles.</p>
+                    <div class="timeline-tags">
+                        <span class="tag">Computer Applications</span>
+                        <span class="tag">Programming</span>
+                        <span class="tag">Software Development</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education 3 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2021</div>
+                <div class="timeline-content">
+                    <h3>Higher Secondary Education (XII)</h3>
+                    <h4>M.D.J Public School, Ara</h4>
+                    <p>Completed CBSE Class XII with 76.4% marks, focusing on science and mathematics.</p>
+                    <div class="timeline-tags">
+                        <span class="tag">CBSE</span>
+                        <span class="tag">Science</span>
+                        <span class="tag">Mathematics</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education 4 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2019</div>
+                <div class="timeline-content">
+                    <h3>Secondary Education (X)</h3>
+                    <h4>M.D.J Public School, Ara</h4>
+                    <p>Completed CBSE Class X with 91% marks, demonstrating strong academic performance.</p>
+                    <div class="timeline-tags">
+                        <span class="tag">CBSE Board</span>
+                        <span class="tag">Science</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Contact Me</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info" data-aos="fade-right" data-aos-duration="1000">
+                <h3>Get in Touch</h3>
+                <p>Feel free to reach out to me for any inquiries, collaborations, or just to say hello. I'm always open to discussing new projects and opportunities.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>Pune, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>rohitkumarara2004@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p>(+91) 9693054074</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/rayrohit999" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/rayrohit999" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/Rohitray980" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/rayrohit999" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="contact-form" data-aos="fade-left" data-aos-duration="1000">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn primary-btn submit-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Rohit Kumar</h2>
+                <p>Creating innovative solutions with passion and precision.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to my newsletter for the latest updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Rohit Kumar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -284,12 +284,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu Toggle with improved functionality
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinksContainer = document.querySelector('.nav-links');
+    const navOverlay = document.querySelector('.nav-overlay');
     const body = document.body;
 
     // Function to toggle menu state
     function toggleMenu() {
         menuToggle.classList.toggle('active');
         navLinksContainer.classList.toggle('active');
+        if (navOverlay) {
+            navOverlay.classList.toggle('active');
+        }
         
         // Prevent body scrolling when menu is open
         if (navLinksContainer.classList.contains('active')) {
@@ -300,6 +304,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     menuToggle.addEventListener('click', toggleMenu);
+
+    // Close mobile menu when clicking overlay
+    if (navOverlay) {
+        navOverlay.addEventListener('click', function() {
+            if (navLinksContainer.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    }
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {

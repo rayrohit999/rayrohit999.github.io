@@ -371,26 +371,94 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Form Submission
+    // Form Submission with Formspree
     const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
+    const submitBtn = contactForm ? contactForm.querySelector('.submit-btn') : null;
+    
+    if (contactForm && submitBtn) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Here you would typically send the form data to a server
-            // For now, we'll just show a success message
+            
+            // Show loading state
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            // Get form data
             const formData = new FormData(contactForm);
-            const formValues = {};
             
-            for (let [key, value] of formData.entries()) {
-                formValues[key] = value;
-            }
-            
-            console.log('Form submitted with values:', formValues);
-            
-            // Reset form and show success message
-            contactForm.reset();
-            alert('Thank you for your message! I will get back to you soon.');
+            // Submit to Formspree
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success
+                    contactForm.reset();
+                    submitBtn.innerHTML = '<span>Message Sent!</span><i class="fas fa-check"></i>';
+                    submitBtn.style.backgroundColor = '#28a745';
+                    
+                    // Show success message
+                    showNotification('Thank you for your message! I will get back to you soon.', 'success');
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.backgroundColor = '';
+                    }, 3000);
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                submitBtn.innerHTML = '<span>Try Again</span><i class="fas fa-exclamation-triangle"></i>';
+                submitBtn.style.backgroundColor = '#dc3545';
+                
+                // Show error message
+                showNotification('Sorry, there was an error sending your message. Please try again.', 'error');
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.backgroundColor = '';
+                }, 3000);
+            });
         });
+    }
+    
+    // Notification function
+    function showNotification(message, type = 'info') {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                <span>${message}</span>
+            </div>
+            <button class="notification-close" onclick="this.parentElement.remove()">
+                <i class="fas fa-times"></i>
+            </button>
+        `;
+        
+        // Add to page
+        document.body.appendChild(notification);
+        
+        // Show notification
+        setTimeout(() => notification.classList.add('show'), 100);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        }, 5000);
     }
 
     // Smooth scrolling for anchor links

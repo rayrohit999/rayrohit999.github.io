@@ -4,7 +4,7 @@
 
 ### 1. Create Google Analytics Account
 1. Go to https://analytics.google.com/
-2. Create a new property for rayrohit999.github.io
+2. Create a new property for rohitray.me
 3. Get your GA4 Measurement ID (looks like G-XXXXXXXXXX)
 
 ### 2. Add GA4 Code to HTML
@@ -25,12 +25,12 @@ Add this code to the `<head>` section of index.html:
 
 ### 1. Verify Your Site
 1. Go to https://search.google.com/search-console/
-2. Add property: rayrohit999.github.io
+2. Add property: rohitray.me
 3. Verify using HTML file upload or meta tag method
 
 ### 2. Submit Sitemap
 1. In Search Console, go to Sitemaps
-2. Submit: https://rayrohit999.github.io/sitemap.xml
+2. Submit: https://rohitray.me/sitemap.xml
 
 ## Performance Monitoring
 

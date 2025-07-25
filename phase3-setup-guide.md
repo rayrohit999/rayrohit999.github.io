@@ -37,7 +37,7 @@
 4. Property name: "rohitray.me"
 5. Select "Web" platform
 6. Website URL: https://rohitray.me/
-7. **Copy your Measurement ID** (looks like G-XXXXXXXXXX)
+7. **Copy your Measurement ID** (looks like G-EVG00BHNP0)
 
 ### Step 2: Add Analytics Code to Website
 Once you get your GA4 ID, I'll help you add this code to your HTML:

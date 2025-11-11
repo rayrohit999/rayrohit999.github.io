@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Typing Animation
     const typedTextSpan = document.querySelector('.typed-text');
     const cursorSpan = document.querySelector('.cursor');
-    const textArray = ['Web Developer', 'UI/UX Designer', 'Software Engineer', 'Problem Solver'];
+    const textArray = ['Full Stack Developer', 'ML Engineer', 'Software Engineer', 'Problem Solver', 'Gold Medallist'];
     const typingDelay = 100;
     const erasingDelay = 50;
     const newTextDelay = 2000;
